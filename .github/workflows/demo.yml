@@ -5,4 +5,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Print greeting
-                run: echo "Hi, Github!"
+              run: echo "Hi, Github!"
