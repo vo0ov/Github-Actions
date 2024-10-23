@@ -6,3 +6,8 @@ jobs:
         steps:
             - name: Print greeting
               run: echo "Hi, Github!"
+            - name: Print a few lines
+              run: |
+                echo first line
+                echo second line
+                echo third line
