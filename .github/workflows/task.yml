@@ -12,6 +12,9 @@ jobs:
                 node: [15, 16, 20]
 
         steps:
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node }}
             - run: npm init
             - run: echo "console.log(\"Я почти изучил Git в Merion!\")" > "index.js"
             - run: npm run test
