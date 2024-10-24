@@ -1,0 +1,17 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+    test:
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+                node: [15, 16, 20]
+
+        steps:
+            - run: npm init
+            - run: echo "console.log(\"Я почти изучил Git в Merion!\")" > "index.js"
+            - run: npm run test

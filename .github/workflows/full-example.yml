@@ -1,0 +1,27 @@
+name: Start tests
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - test
+
+jobs:
+    test:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [ubuntu-latest, macos-latest]
+                node: [15, 16, 20]
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js ${{ matrix.node }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node }}
+            - run: npm ci
+            - run: |
+                  npm run build
+                  npm test
